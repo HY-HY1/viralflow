@@ -1,0 +1,43 @@
+# Test for valid URL (ensure it works with a real or mock URL)
+POST http://127.0.0.1:5000/api/download/youtube
+Content-Type: application/json
+
+{
+    "url": "https://www.youtube.com/watch?v=1IEg_3x35go"
+}
+
+###
+
+# Test for missing URL in request body (should return an error)
+POST http://127.0.0.1:5000/api/download/youtube
+Content-Type: application/json
+
+{
+    "url": ""
+}
+
+###
+
+# Test for missing URL field in the request body (should return an error)
+POST http://127.0.0.1:5000/api/download/youtube
+Content-Type: application/json
+
+{}
+
+###
+
+# Test for invalid URL (you can simulate a non-TikTok URL)
+POST http://127.0.0.1:5000/api/download/youtube
+Content-Type: application/json
+
+{
+    "url": "https://www.someotherwebsite.com/video/1234567890"
+}
+
+###
+####################################
+
+### Test Valid File Request
+GET http://localhost:5000/api/download/file/7472890157041978632_vGWRdzLJnjYf.mp4 HTTP/1.1
+Accept: application/json
+    

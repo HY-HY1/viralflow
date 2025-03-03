@@ -1,0 +1,123 @@
+# Test Case 1: Successful Request with Valid Token
+### Request: 
+# Test Case 1: Successful Request with Valid Token
+### Request: 
+GET http://localhost:3000/api/auth/dashboard
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MxOTc2YzIyYmNiYzAwNzAyZDRmNzIiLCJpYXQiOjE3NDA3NDA0NjAsImV4cCI6MTc0MDc0NDA2MH0.FMTpU9j5OB18avSQT8T_xUNWxl3Az_Hm50f-lOlQ2l4
+
+### Response:
+Status: 200 OK
+{
+  "success": true,
+  "message": "User data retrieved successfully",
+  "user": {
+    "_id": "user_id_example",
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+  }
+}
+
+---
+
+# Test Case 2: Missing Authorization Header
+### Request: 
+GET http://localhost:3000/api/auth/dashboard
+
+### Response:
+Status: 403 Forbidden
+{
+  "success": false,
+  "message": "Authorization header is missing",
+  "statusCode": 403
+}
+
+
+
+---
+
+# Test Case 3: Invalid Authorization Header Format
+### Request:
+GET http://localhost:3000/api/auth/dashboard
+Authorization: invalidToken
+
+### Response:
+Status: 403 Forbidden
+{
+  "success": false,
+  "message": "Invalid Authorization header format",
+  "statusCode": 403
+}
+
+---
+
+# Test Case 4: Token is Missing or Invalid (No Token in Redis or Header)
+### Request:
+GET http://localhost:3000/api/auth/dashboard
+
+### Response:
+Status: 403 Forbidden
+{
+  "success": false,
+  "message": "Token is missing or invalid",
+  "statusCode": 403
+}
+
+---
+
+# Test Case 5: Failed to Decode Token (Invalid Token)
+### Request:
+GET http://localhost:3000/api/auth/dashboard
+Authorization: Bearer invalid_token
+
+### Response:
+Status: 401 Unauthorized
+{
+  "success": false,
+  "message": "Failed to decode token or token is invalid",
+  "statusCode": 401
+}
+
+---
+
+# Test Case 6: Missing userId in Token (Decoded Token is Missing userId)
+### Request:
+GET http://localhost:3000/api/auth/dashboard
+Authorization: Bearer token_with_no_userId
+
+### Response:
+Status: 401 Unauthorized
+{
+  "success": false,
+  "message": "Invalid token: userId is missing",
+  "statusCode": 401
+}
+
+---
+
+# Test Case 7: User Does Not Exist (User Not Found in DB)
+### Request:
+GET http://localhost:3000/api/auth/dashboard
+Authorization: Bearer valid_token_but_user_does_not_exist
+
+### Response:
+Status: 401 Unauthorized
+{
+  "success": false,
+  "message": "User does not exist",
+  "statusCode": 401
+}
+
+---
+
+# Test Case 8: Internal Server Error (Unexpected Error)
+### Request:
+GET http://localhost:3000/api/auth/dashboard
+Authorization: Bearer valid_token
+
+### Response:
+Status: 500 Internal Server Error
+{
+  "success": false,
+  "message": "Internal Server Error: An unexpected error occurred",
+  "statusCode": 500
+}

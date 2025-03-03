@@ -1,0 +1,48 @@
+### Test Register - Successful Registration
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "hjyemm1@gmail.com",
+  "password": "Harvey!",
+  "firstName": "Harvey",
+  "lastName": "Yemm"
+  
+}
+
+### Test Register - User Already Exists
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "existinguser@example.com",
+  "password": "AnotherPassword456!",
+  "name": "Existing User"
+}
+
+### Test Register - Missing Email
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "password": "TestPassword123!",
+  "name": "User Without Email"
+}
+
+### Test Register - Missing Password
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "userwithoutpassword@example.com",
+  "name": "User Without Password"
+}
+
+### Test Register - Missing Name
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "userwithoutname@example.com",
+  "password": "TestPassword123!"
+}

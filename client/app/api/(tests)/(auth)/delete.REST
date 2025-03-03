@@ -1,0 +1,53 @@
+### 1. Missing Authorization Header (Expect 401)
+<<<<<<< HEAD
+POST http://localhost:3000/api/auth/delete
+=======
+POST http://localhost:3000/api/delete-user
+>>>>>>> dc938e60fcdf4e517da1a2c806707ef04e59f961
+Content-Type: application/json
+
+{}
+
+### 2. Invalid Token (Expect 401)
+<<<<<<< HEAD
+POST http://localhost:3000/api/auth/delete
+=======
+POST http://localhost:3000/api/delete-user
+>>>>>>> dc938e60fcdf4e517da1a2c806707ef04e59f961
+Content-Type: application/json
+Authorization: Bearer invalid_token
+
+{}
+
+### 3. Expired Token (Expect 401)
+<<<<<<< HEAD
+POST http://localhost:3000/api/auth/delete
+=======
+POST http://localhost:3000/api/delete-user
+>>>>>>> dc938e60fcdf4e517da1a2c806707ef04e59f961
+Content-Type: application/json
+Authorization: Bearer expired_token
+
+{}
+
+### 4. User Does Not Exist (Expect 401)
+<<<<<<< HEAD
+POST http://localhost:3000/api/auth/delete
+=======
+POST http://localhost:3000/api/delete-user
+>>>>>>> dc938e60fcdf4e517da1a2c806707ef04e59f961
+Content-Type: application/json
+Authorization: Bearer valid_token_with_nonexistent_user
+
+{}
+
+### 5. Successful Deletion (Expect 201)
+POST http://localhost:3000/api/auth/delete
+Content-Type: application/json
+<<<<<<< HEAD
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2JmODA5MThhYWQ1ZmMwYWU2YzIyYmEiLCJpYXQiOjE3NDA2MTExMTEsImV4cCI6MTc0MDYxNDcxMX0.QYX8dflwnXI5Nb7iIXtl5Gzf-PkVF_CcRotp-YG0Coo
+=======
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2MwNDA0ZTM2MmNjMGYzNGM5MDJiNjAiLCJpYXQiOjE3NDA2NTI3NzIsImV4cCI6MTc0MDY1NjM3Mn0.Zy-jwem5btlDvx3tP_qpvAP_Y6xKZZqIdkGbMvVsaUI
+>>>>>>> dc938e60fcdf4e517da1a2c806707ef04e59f961
+
+{}

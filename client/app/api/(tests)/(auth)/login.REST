@@ -1,0 +1,35 @@
+### Test: Missing Fields
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "",
+  "password": ""
+}
+
+### Test: Non-existing User
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "hjyemm2@gmail.com",
+  "password": "Harvey!"
+}
+
+### Test: Incorrect Password
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "hjyemm1@gmail.com",
+  "password": "incorrectpassword"
+}
+
+### Test: Successful Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "hjyemm1@gmail.com",
+  "password": "Harvey!"
+}

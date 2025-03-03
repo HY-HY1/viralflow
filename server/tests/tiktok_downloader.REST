@@ -1,0 +1,43 @@
+# Test for valid URL (ensure it works with a real or mock URL)
+POST http://127.0.0.1:5000/api/download/tiktok
+Content-Type: application/json
+
+{
+    "url": "https://www.tiktok.com/@_yaserqaryoutii/video/7472890157041978632?kref=vGWRdzLJnjYf&kuid=3130dfce-c086-437f-9ab0-df56eaf7fd8b"
+}
+
+###
+
+# Test for missing URL in request body (should return an error)
+POST http://127.0.0.1:5000/api/download/tiktok
+Content-Type: application/json
+
+{
+    "url": ""
+}
+
+###
+
+# Test for missing URL field in the request body (should return an error)
+POST http://127.0.0.1:5000/api/download/tiktok
+Content-Type: application/json
+
+{}
+
+###
+
+# Test for invalid URL (you can simulate a non-TikTok URL)
+POST http://127.0.0.1:5000/api/download/tiktok
+Content-Type: application/json
+
+{
+    "url": "https://www.someotherwebsite.com/video/1234567890"
+}
+
+###
+####################################
+
+### Test Valid File Request
+GET http://localhost:5000/api/download/file/7472890157041978632_vGWRdzLJnjYf.mp4 HTTP/1.1
+Accept: application/json
+    

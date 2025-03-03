@@ -1,0 +1,21 @@
+.container-l {
+    width: 80vw;
+    margin: auto;
+}
+
+.container-m {
+    width: 70vw;
+    margin: auto;
+}
+
+.container-s {
+    width: 60vw;
+    margin: auto;
+}
+
+.container-xs {
+    width: 50vw;
+    margin: auto;
+}
+
+

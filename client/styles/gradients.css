@@ -1,0 +1,15 @@
+/* Blue to Light Blue Gradient */
+.blue-gradient {
+    background: linear-gradient(135deg, #d5d5fa, #c7f2ff);
+    opacity: 10;
+}
+
+/* Purple to Light Purple Gradient */
+.purple-gradient {
+    background: linear-gradient(135deg, #800080, #D8BFD8);
+}
+
+/* Gray to Dark Gray Gradient */
+.gray-gradient {
+    background: linear-gradient(135deg, #A9A9A9, #696969);
+}
