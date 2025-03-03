@@ -12,9 +12,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <AuthProvider>
       <SidebarProvider>
-        <div className="flex">
+        <div className="flex w-full 0">
           <AppSidebar />
-          <main className="flex-1">
+          <main className="flex-1 w-full">
             <SidebarTrigger />
             {children}
           </main>

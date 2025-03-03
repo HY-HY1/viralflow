@@ -100,7 +100,7 @@ export function Navbar() {
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
               <span className="hidden font-bold sm:inline-block">
-                TikTok AI
+                ViralFlow
               </span>
             </Link>
             <NavigationMenu>

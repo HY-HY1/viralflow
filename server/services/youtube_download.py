@@ -18,28 +18,29 @@ class YouTubeDownloader:
             return False
         return True
 
-    def download_video(self):
-        """Download highest-quality video with audio"""
-        if not self.check_ffmpeg():
-            return
-
+    def download(self) -> str:
+        """Download the video and return the file path"""
         ydl_opts = {
-            'format': 'bv+ba/best',  # Best video + best audio
-            'merge_output_format': 'mp4',  # Merge into MP4
-            'outtmpl': os.path.join(self.output_path, '%(title)s.%(ext)s'),  # Save with video title
-            'quiet': False,  # Show progress
+            'format': 'best',  # Download best quality
+            'outtmpl': os.path.join(self.output_path, '%(title)s.%(ext)s'),
+            'quiet': False,
+            'no_warnings': True,
+            'extract_flat': False,
         }
 
-        try:
-            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                print(f"⬇️ Downloading: {self.url}...")
-                ydl.download([self.url])
-                print(f"✅ Download complete! Saved to: {self.output_path}")
-        except Exception as e:
-            print(f"❌ Download failed: {e}")
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            # Download the video
+            info = ydl.extract_info(self.url, download=True)
+            video_path = ydl.prepare_filename(info)
+            return video_path
+
+def youtube_downloader(url: str, output_path: str) -> str:
+    """Download a YouTube video and return the file path"""
+    downloader = YouTubeDownloader(url, output_path)
+    return downloader.download()
 
 # Take user input for YouTube link
-def youtube_downloader(video_url, output_directory):
+def youtube_downloader_old(video_url, output_directory):
     downloader = YouTubeDownloader(video_url, output_directory)
     downloader.download_video()
     os.system(f"explorer {output_directory}")  

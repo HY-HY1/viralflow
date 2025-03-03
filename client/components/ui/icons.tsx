@@ -26,7 +26,9 @@ import {
   BarChart3,
   ShoppingBag,
   Layout,
+  Check,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export type Icon = LucideIcon;
 
@@ -93,4 +95,5 @@ export const Icons = {
   shop: ShoppingBag,
   template: Layout,
   automation: Settings,
+  check: Check,
 }; 

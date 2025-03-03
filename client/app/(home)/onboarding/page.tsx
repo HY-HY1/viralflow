@@ -3,10 +3,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
-import { ArrowRight, CheckCircle2, Github } from "lucide-react";
-import { signIn } from "next-auth/react";
+import { useState, useRef, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ArrowRight } from "lucide-react";
+import { signIn, useSession } from "next-auth/react";
+import { toast } from "sonner";
 
 // Icons component for loading and provider logos
 const Icons = {
@@ -114,9 +115,11 @@ const steps = [
 ];
 
 export default function OnboardingPage() {
+    const { data: session, status } = useSession();
     const [currentStep, setCurrentStep] = useState(0);
     const [isGoogleLoading, setIsGoogleLoading] = useState(false);
     const router = useRouter();
+    const searchParams = useSearchParams();
     const containerRef = useRef(null);
     const formRef = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -127,6 +130,31 @@ export default function OnboardingPage() {
     const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
     const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1]);
     const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+    useEffect(() => {
+        if (status === "authenticated" && session) {
+            router.push("/dashboard");
+        }
+    }, [status, session, router]);
+
+    useEffect(() => {
+        const error = searchParams.get("error");
+        if (error) {
+            switch (error) {
+                case "AccessDenied":
+                    toast.error("Access denied. Please try signing in again.");
+                    break;
+                case "Configuration":
+                    toast.error("There was a problem with the server configuration.");
+                    break;
+                case "Verification":
+                    toast.error("The verification token has expired or has already been used.");
+                    break;
+                default:
+                    toast.error("An error occurred during sign in.");
+            }
+        }
+    }, [searchParams]);
 
     const handleNext = () => {
         if (currentStep < steps.length - 1) {
@@ -140,18 +168,33 @@ export default function OnboardingPage() {
         if (provider === "google") {
             setIsGoogleLoading(true);
             try {
-                await signIn(provider, {
-                    callbackUrl: "/onboarding",
-                    redirect: true,
+                const result = await signIn(provider, {
+                    callbackUrl: "/dashboard",
+                    redirect: false,
                 });
+
+                if (result?.error) {
+                    console.error("Error signing in with Google:", result.error);
+                    switch (result.error) {
+                        case "AccessDenied":
+                            toast.error("Access denied. Please try signing in again.");
+                            break;
+                        case "Configuration":
+                            toast.error("There was a problem with the server configuration.");
+                            break;
+                        case "Verification":
+                            toast.error("The verification token has expired or has already been used.");
+                            break;
+                        default:
+                            toast.error("Failed to sign in with Google. Please try again.");
+                    }
+                }
             } catch (error) {
                 console.error("Error signing in with Google:", error);
+                toast.error("An unexpected error occurred. Please try again.");
+            } finally {
+                setIsGoogleLoading(false);
             }
-        } else {
-            await signIn(provider, {
-                callbackUrl: "/onboarding",
-                redirect: true,
-            });
         }
     };
 
@@ -248,136 +291,53 @@ export default function OnboardingPage() {
                     {/* OAuth Buttons */}
                     <div className="space-y-4">
                         <Button
-                            onClick={() => handleOAuthSignIn("google")}
                             variant="outline"
+                            onClick={() => handleOAuthSignIn("google")}
+                            disabled={isGoogleLoading || status === "loading"}
                             className="w-full"
-                            disabled={isGoogleLoading}
                         >
-                            {isGoogleLoading ? (
-                                <Icons.spinner className="h-5 w-5 animate-spin mr-2" />
+                            {isGoogleLoading || status === "loading" ? (
+                                <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
                             ) : (
-                                <Icons.google className="h-5 w-5 mr-2" />
+                                <Icons.google className="mr-2 h-4 w-4" />
                             )}
                             Continue with Google
                         </Button>
+                    </div>
+
+                    <div className="relative">
+                        <div className="absolute inset-0 flex items-center">
+                            <span className="w-full border-t" />
+                        </div>
+                        <div className="relative flex justify-center text-xs uppercase">
+                            <span className="bg-white px-2 text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+
+                    {/* Form Fields */}
+                    <div className="space-y-4">
+                        <div>
+                            <Input
+                                type="email"
+                                placeholder="Email"
+                                className="w-full"
+                            />
+                        </div>
+                        <div>
+                            <Input
+                                type="password"
+                                placeholder="Password"
+                                className="w-full"
+                            />
+                        </div>
                         <Button
-                            onClick={() => handleOAuthSignIn("github")}
-                            variant="outline"
                             className="w-full"
+                            onClick={handleNext}
                         >
-                            <Github className="mr-2 h-5 w-5" />
-                            Continue with GitHub
+                            Continue
+                            <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
-                        
-                        <div className="relative">
-                            <div className="absolute inset-0 flex items-center">
-                                <div className="w-full border-t border-gray-200" />
-                            </div>
-                            <div className="relative flex justify-center text-sm">
-                                <span className="px-2 bg-white text-gray-500">Or continue with</span>
-                            </div>
-                        </div>
                     </div>
-
-                    {/* Progress Bar */}
-                    <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                        <motion.div
-                            className="h-full bg-purple-600"
-                            initial={{ width: "0%" }}
-                            animate={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
-                            transition={{ duration: 0.5 }}
-                        />
-                    </div>
-
-                    {/* Step Content */}
-                    <motion.div
-                        key={currentStep}
-                        initial="initial"
-                        animate="animate"
-                        variants={fadeInUp}
-                        className="space-y-6"
-                    >
-                        <div className="text-center">
-                            <motion.h2 
-                                className="text-3xl font-bold text-gray-900"
-                                variants={fadeInUp}
-                            >
-                                {steps[currentStep].title}
-                            </motion.h2>
-                            <motion.p 
-                                className="mt-2 text-gray-600"
-                                variants={fadeInUp}
-                            >
-                                {steps[currentStep].description}
-                            </motion.p>
-                        </div>
-
-                        <div className="space-y-4">
-                            {currentStep === 0 && (
-                                <>
-                                    <Input
-                                        type="email"
-                                        placeholder="Email address"
-                                        className="w-full"
-                                    />
-                                    <Input
-                                        type="password"
-                                        placeholder="Password"
-                                        className="w-full"
-                                    />
-                                </>
-                            )}
-
-                            {currentStep === 1 && (
-                                <>
-                                    <select className="w-full rounded-lg border border-gray-300 p-3">
-                                        <option value="">Select content type</option>
-                                        <option value="educational">Educational</option>
-                                        <option value="entertainment">Entertainment</option>
-                                        <option value="lifestyle">Lifestyle</option>
-                                    </select>
-                                    <select className="w-full rounded-lg border border-gray-300 p-3">
-                                        <option value="">Select your niche</option>
-                                        <option value="tech">Technology</option>
-                                        <option value="fashion">Fashion</option>
-                                        <option value="food">Food</option>
-                                        <option value="fitness">Fitness</option>
-                                    </select>
-                                </>
-                            )}
-
-                            {currentStep === 2 && (
-                                <div className="space-y-4">
-                                    {["Free", "Pro", "Enterprise"].map((plan) => (
-                                        <motion.div
-                                            key={plan}
-                                            className="border rounded-lg p-4 cursor-pointer hover:border-purple-500 transition-colors"
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
-                                        >
-                                            <div className="flex items-center justify-between">
-                                                <h3 className="font-medium">{plan}</h3>
-                                                <CheckCircle2 className="h-5 w-5 text-purple-500" />
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                            )}
-                        </div>
-
-                        <motion.div
-                            className="flex justify-end"
-                            variants={fadeInUp}
-                        >
-                            <Button
-                                onClick={handleNext}
-                                className="w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center gap-2"
-                            >
-                                {currentStep === steps.length - 1 ? "Get Started" : "Continue"}
-                                <ArrowRight className="h-4 w-4" />
-                            </Button>
-                        </motion.div>
-                    </motion.div>
                 </motion.div>
             </motion.section>
         </div>

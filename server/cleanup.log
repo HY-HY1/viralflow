@@ -1,0 +1,330 @@
+2025-03-03 16:48:42,332 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 16:48:42,332 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 16:48:42,381 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 16:48:42,388 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 16:49:08,419 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:49:08] "OPTIONS /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 16:49:11,868 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:49:11] "POST /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 16:49:11,873 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:49:11] "OPTIONS /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 16:49:12,188 - downloader_routes - INFO - Starting TikTok video download: https://www.tiktok.com/@posinglamp/video/7471659798665252118?q=posing%20lamp&t=1739471177627
+2025-03-03 16:49:17,328 - downloader_routes - INFO - Successfully downloaded TikTok video: https://www.tiktok.com/@posinglamp/video/7471659798665252118?q=posing%20lamp&t=1739471177627
+2025-03-03 16:49:17,329 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:49:17] "POST /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 16:49:17,650 - downloader_routes - INFO - Serving file: tiktok_7471659798665252118.mp4
+2025-03-03 16:49:17,776 - cleanup_service - ERROR - Error deleting file D:\Website\viralflow\server\downloads\tiktok_7471659798665252118.mp4: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\downloads\\tiktok_7471659798665252118.mp4'
+2025-03-03 16:49:17,777 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:49:17] "[36mGET /api/download/file/tiktok_7471659798665252118.mp4 HTTP/1.1[0m" 304 -
+2025-03-03 16:53:42,335 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\downloads\tiktok_7471659798665252118.mp4
+2025-03-03 16:53:42,335 - cleanup_service - INFO - Cleanup completed. Deleted 1 expired files
+2025-03-03 16:54:01,973 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\api\\downloader.py', reloading
+2025-03-03 16:54:02,764 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 16:54:02,764 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 16:54:02,818 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 16:54:02,825 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 16:55:38,562 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\app.py', reloading
+2025-03-03 16:55:39,446 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 16:55:39,447 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 16:55:39,510 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 16:55:39,518 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 16:57:00,474 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:57:00] "OPTIONS /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 16:57:03,761 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:57:03] "POST /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 16:57:03,766 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:57:03] "OPTIONS /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 16:57:04,075 - downloader_routes - INFO - Starting TikTok video download: https://www.tiktok.com/@posinglamp/video/7471659798665252118?q=posing%20lamp&t=1739471177627
+2025-03-03 16:57:09,787 - downloader_routes - INFO - Successfully downloaded TikTok video: https://www.tiktok.com/@posinglamp/video/7471659798665252118?q=posing%20lamp&t=1739471177627
+2025-03-03 16:57:09,788 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:57:09] "POST /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 16:57:10,104 - downloader_routes - INFO - Serving file: tiktok_7471659798665252118.mp4
+2025-03-03 16:57:10,178 - cleanup_service - ERROR - Error deleting file D:\Website\viralflow\server\downloads\tiktok_7471659798665252118.mp4: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\downloads\\tiktok_7471659798665252118.mp4'
+2025-03-03 16:57:10,179 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 16:57:10] "[36mGET /api/download/file/tiktok_7471659798665252118.mp4 HTTP/1.1[0m" 304 -
+2025-03-03 16:59:13,946 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\services\\transcriber.py', reloading
+2025-03-03 16:59:14,718 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 16:59:14,718 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 16:59:14,720 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\downloads\tiktok_7471659798665252118.mp4
+2025-03-03 16:59:14,721 - cleanup_service - INFO - Cleanup completed. Deleted 1 expired files
+2025-03-03 16:59:14,779 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 16:59:14,787 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 16:59:31,660 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\api\\transcriber.py', reloading
+2025-03-03 16:59:32,448 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 16:59:32,448 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:02:57,541 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:02:57,541 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:04:32,015 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:04:32,015 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:04:49,232 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:04:49,232 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:11:40,237 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:11:40,237 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:14:41,999 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:14:41,999 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:14:53,421 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:14:53,421 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:17:24,193 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:17:24,194 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:18:23,885 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:18:23,885 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:22:30,056 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:22:30,056 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:27:41,026 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:27:41,026 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:29:23,227 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:29:23,227 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:29:29,879 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.93:5000
+2025-03-03 17:29:29,880 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-03 17:29:29,883 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:29:30,779 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:29:30,780 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:29:34,713 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:29:34,719 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:30:33,140 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:30:33,140 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:30:36,524 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.93:5000
+2025-03-03 17:30:36,525 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-03 17:30:36,528 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:30:37,168 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:30:37,168 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:30:40,946 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:30:40,955 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:30:43,169 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:30:43] "OPTIONS /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 17:30:46,528 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:30:46] "POST /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 17:30:46,534 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:30:46] "OPTIONS /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 17:30:46,850 - downloader_routes - INFO - Starting TikTok video download: https://www.tiktok.com/@posinglamp/video/7471659798665252118?q=posing%20lamp&t=1739471177627
+2025-03-03 17:30:52,702 - downloader_routes - INFO - Successfully downloaded TikTok video: https://www.tiktok.com/@posinglamp/video/7471659798665252118?q=posing%20lamp&t=1739471177627
+2025-03-03 17:30:52,703 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:30:52] "POST /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 17:30:53,019 - downloader_routes - INFO - Serving file: tiktok_7471659798665252118.mp4
+2025-03-03 17:30:53,088 - cleanup_service - ERROR - Error deleting file D:\Website\viralflow\server\downloads\tiktok_7471659798665252118.mp4: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\downloads\\tiktok_7471659798665252118.mp4'
+2025-03-03 17:30:53,089 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:30:53] "[36mGET /api/download/file/tiktok_7471659798665252118.mp4 HTTP/1.1[0m" 304 -
+2025-03-03 17:33:05,656 - transcriber_routes - INFO - Starting transcription for video: tiktok_7471659798665252118.mp4
+2025-03-03 17:33:36,772 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\tiktok_7471659798665252118.mp4
+2025-03-03 17:33:36,772 - transcriber_routes - INFO - Transcription completed for video: tiktok_7471659798665252118.mp4
+2025-03-03 17:33:36,774 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:33:36] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:33:36,916 - transcriber_routes - INFO - Starting transcription for video: tiktok_7471659798665252118.mp4
+2025-03-03 17:33:52,856 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\tiktok_7471659798665252118.mp4
+2025-03-03 17:33:52,857 - transcriber_routes - INFO - Transcription completed for video: tiktok_7471659798665252118.mp4
+2025-03-03 17:33:52,858 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:33:52] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:34:37,543 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\services\\transcriber.py', reloading
+2025-03-03 17:34:38,272 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:34:38,967 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:34:38,967 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:34:38,969 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\downloads\tiktok_7471659798665252118.mp4
+2025-03-03 17:34:38,969 - cleanup_service - INFO - Cleanup completed. Deleted 1 expired files
+2025-03-03 17:34:42,595 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:34:42,602 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:36:33,850 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:36:33] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:36:34,121 - transcriber_routes - INFO - Starting transcription for video: tiktok_7471659798665252118.mp4
+2025-03-03 17:36:39,170 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\tiktok_7471659798665252118.mp4
+2025-03-03 17:36:39,170 - transcriber_routes - INFO - Transcription completed for video: tiktok_7471659798665252118.mp4
+2025-03-03 17:36:39,172 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:36:39] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:38:54,279 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\api\\transcriber.py', reloading
+2025-03-03 17:38:54,898 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:38:55,713 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:38:55,714 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:38:59,903 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:38:59,910 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:39:24,474 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:24] "OPTIONS /api/transcribe/url HTTP/1.1" 200 -
+2025-03-03 17:39:24,723 - transcriber_routes - INFO - Starting video download from URL: https://www.tiktok.com/@viralshoppyfinds/video/7407838124015095073
+2025-03-03 17:39:25,255 - transcriber_routes - ERROR - Error transcribing video from URL: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\temp\\tmpylwqnqct.mp4'
+2025-03-03 17:39:25,256 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:25] "[35m[1mPOST /api/transcribe/url HTTP/1.1[0m" 500 -
+2025-03-03 17:39:34,261 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:34] "OPTIONS /api/transcribe/url HTTP/1.1" 200 -
+2025-03-03 17:39:34,566 - transcriber_routes - INFO - Starting video download from URL: https://www.tiktok.com/@viralshoppyfinds/video/7407838124015095073
+2025-03-03 17:39:35,104 - transcriber_routes - ERROR - Error transcribing video from URL: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\temp\\tmputqj07ku.mp4'
+2025-03-03 17:39:35,105 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:35] "[35m[1mPOST /api/transcribe/url HTTP/1.1[0m" 500 -
+2025-03-03 17:39:40,490 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:40] "OPTIONS /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 17:39:44,144 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:44] "POST /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 17:39:44,150 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:44] "OPTIONS /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 17:39:44,463 - downloader_routes - INFO - Starting TikTok video download: https://www.tiktok.com/@viralshoppyfinds/video/7407838124015095073
+2025-03-03 17:39:50,851 - downloader_routes - INFO - Successfully downloaded TikTok video: https://www.tiktok.com/@viralshoppyfinds/video/7407838124015095073
+2025-03-03 17:39:50,852 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:50] "POST /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 17:39:51,175 - downloader_routes - INFO - Serving file: tiktok_7407838124015095073.mp4
+2025-03-03 17:39:51,245 - cleanup_service - ERROR - Error deleting file D:\Website\viralflow\server\downloads\tiktok_7407838124015095073.mp4: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\downloads\\tiktok_7407838124015095073.mp4'
+2025-03-03 17:39:51,246 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:39:51] "GET /api/download/file/tiktok_7407838124015095073.mp4 HTTP/1.1" 200 -
+2025-03-03 17:40:11,573 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:40:11] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:40:11,901 - transcriber_routes - INFO - Starting transcription for video: tiktok_7471659798665252118.mp4
+2025-03-03 17:40:26,214 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\tiktok_7471659798665252118.mp4
+2025-03-03 17:40:26,215 - transcriber_routes - INFO - Transcription completed for video: tiktok_7471659798665252118.mp4
+2025-03-03 17:40:26,217 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:40:26] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:40:33,142 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\downloads\tiktok_7407838124015095073.mp4
+2025-03-03 17:40:33,143 - cleanup_service - INFO - Cleanup completed. Deleted 1 expired files
+2025-03-03 17:41:34,614 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\services\\transcriber.py', reloading
+2025-03-03 17:41:35,357 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:41:36,042 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:41:36,042 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:41:36,278 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:41:36,285 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:44:03,279 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\api\\transcriber.py', reloading
+2025-03-03 17:44:03,356 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:44:04,030 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:44:04,030 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:44:04,119 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:44:04,126 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:44:08,338 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:44:08] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:44:08,626 - transcriber_routes - INFO - Starting transcription for video: tiktok_7407838124015095073.mp4
+2025-03-03 17:45:38,588 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:45:38,588 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:45:38,688 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.93:5000
+2025-03-03 17:45:38,689 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-03 17:45:38,691 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:45:39,340 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:45:39,340 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:45:39,412 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:45:39,421 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:45:46,699 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:45:46] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:45:47,024 - transcriber_routes - INFO - Starting transcription for video: tiktok_7407838124015095073.mp4
+2025-03-03 17:47:26,630 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:47:26,630 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:47:26,750 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.93:5000
+2025-03-03 17:47:26,751 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-03 17:47:26,753 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:47:27,784 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:47:27,784 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:47:27,920 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:47:27,931 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:47:32,006 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:47:32] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:47:32,297 - transcriber_routes - INFO - Starting transcription for video: tiktok_7407838124015095073.mp4
+2025-03-03 17:47:44,148 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\tiktok_7407838124015095073.mp4
+2025-03-03 17:47:44,148 - transcriber_routes - ERROR - Error transcribing video: Transcription failed: No speech detected in the video
+2025-03-03 17:47:44,150 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:47:44] "[35m[1mPOST /api/transcribe HTTP/1.1[0m" 500 -
+2025-03-03 17:47:49,793 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:47:49] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:47:50,124 - transcriber_routes - INFO - Starting transcription for video: tiktok_7407838124015095073.mp4
+2025-03-03 17:48:03,274 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\tiktok_7407838124015095073.mp4
+2025-03-03 17:48:03,274 - transcriber_routes - ERROR - Error transcribing video: Transcription failed: No speech detected in the video
+2025-03-03 17:48:03,275 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:48:03] "[35m[1mPOST /api/transcribe HTTP/1.1[0m" 500 -
+2025-03-03 17:48:27,527 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\services\\transcriber.py', reloading
+2025-03-03 17:48:27,604 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:48:28,326 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:48:28,326 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:48:28,406 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:48:28,413 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:49:20,084 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:49:20] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:49:20,367 - transcriber_routes - INFO - Starting transcription for video: tiktok_7407838124015095073.mp4
+2025-03-03 17:49:31,421 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\tiktok_7407838124015095073.mp4
+2025-03-03 17:49:31,421 - transcriber_routes - INFO - Transcription completed for video: tiktok_7407838124015095073.mp4
+2025-03-03 17:49:31,423 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:49:31] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:50:50,827 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\services\\transcriber.py', reloading
+2025-03-03 17:50:50,913 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:50:51,559 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:50:51,559 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:50:51,661 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:50:51,669 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:51:58,722 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:51:58] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:51:59,011 - transcriber_routes - INFO - Starting transcription for video: tiktok_7407838124015095073.mp4
+2025-03-03 17:52:22,648 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\tiktok_7407838124015095073.mp4
+2025-03-03 17:52:22,648 - transcriber_routes - INFO - Transcription completed for video: tiktok_7407838124015095073.mp4
+2025-03-03 17:52:22,650 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:52:22] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:53:13,947 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:53:13] "OPTIONS /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 17:53:17,150 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:53:17] "POST /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 17:53:17,155 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:53:17] "OPTIONS /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 17:53:17,459 - downloader_routes - INFO - Starting TikTok video download: https://www.tiktok.com/@healthyshopdeals/video/7475062167784394006
+2025-03-03 17:53:27,138 - downloader_routes - INFO - Successfully downloaded TikTok video: https://www.tiktok.com/@healthyshopdeals/video/7475062167784394006
+2025-03-03 17:53:27,139 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:53:27] "POST /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 17:53:27,458 - downloader_routes - INFO - Serving file: tiktok_7475062167784394006.mp4
+2025-03-03 17:53:27,530 - cleanup_service - ERROR - Error deleting file D:\Website\viralflow\server\downloads\tiktok_7475062167784394006.mp4: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\downloads\\tiktok_7475062167784394006.mp4'
+2025-03-03 17:53:27,531 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:53:27] "GET /api/download/file/tiktok_7475062167784394006.mp4 HTTP/1.1" 200 -
+2025-03-03 17:53:35,757 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:53:35] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:53:36,095 - transcriber_routes - INFO - Starting transcription for video: 3.mp4
+2025-03-03 17:54:11,864 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\3.mp4
+2025-03-03 17:54:11,865 - transcriber_routes - INFO - Transcription completed for video: 3.mp4
+2025-03-03 17:54:11,867 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:54:11] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 17:55:17,027 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:55:17] "OPTIONS /api/transcribe/url HTTP/1.1" 200 -
+2025-03-03 17:55:17,293 - transcriber_routes - INFO - Starting video download from URL: https://www.tiktok.com/@healthyshopdeals/video/7475062167784394006
+2025-03-03 17:55:17,864 - transcriber_routes - ERROR - Error transcribing video from URL: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\temp\\tmp3bnorii1.mp4'
+2025-03-03 17:55:17,865 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 17:55:17] "[35m[1mPOST /api/transcribe/url HTTP/1.1[0m" 500 -
+2025-03-03 17:55:46,774 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\api\\transcriber.py', reloading
+2025-03-03 17:55:46,884 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:55:47,550 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:55:47,551 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:55:47,556 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\downloads\tiktok_7475062167784394006.mp4
+2025-03-03 17:55:47,556 - cleanup_service - INFO - Cleanup completed. Deleted 1 expired files
+2025-03-03 17:55:47,651 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:55:47,659 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:57:54,542 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\api\\transcriber.py', reloading
+2025-03-03 17:57:54,659 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:57:55,390 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:57:55,390 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:57:55,483 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:57:55,490 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:58:44,256 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\api\\transcriber.py', reloading
+2025-03-03 17:58:44,367 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:58:45,084 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:58:45,084 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:58:45,178 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:58:45,185 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 17:59:42,431 - werkzeug - INFO -  * Detected change in 'D:\\Website\\viralflow\\server\\api\\transcriber.py', reloading
+2025-03-03 17:59:42,604 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 17:59:43,531 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 17:59:43,531 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 17:59:43,651 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 17:59:43,660 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 18:04:18,339 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 18:04:18] "OPTIONS /api/transcribe/url HTTP/1.1" 200 -
+2025-03-03 18:04:18,607 - transcriber_routes - INFO - Starting video download from URL: https://www.tiktok.com/@healthyshopdeals/video/7475062167784394006
+2025-03-03 18:04:19,221 - transcriber_routes - ERROR - Error transcribing video from URL: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\temp\\tmp515rora1.mp4'
+2025-03-03 18:04:19,222 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 18:04:19] "[35m[1mPOST /api/transcribe/url HTTP/1.1[0m" 500 -
+2025-03-03 18:04:27,463 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 18:04:27] "OPTIONS /api/transcribe/url HTTP/1.1" 200 -
+2025-03-03 18:04:27,768 - transcriber_routes - INFO - Starting video download from URL: https://www.tiktok.com/@healthyshopdeals/video/7475062167784394006
+2025-03-03 18:04:28,280 - transcriber_routes - ERROR - Error transcribing video from URL: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\temp\\tmpn8jtzpls.mp4'
+2025-03-03 18:04:28,281 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 18:04:28] "[35m[1mPOST /api/transcribe/url HTTP/1.1[0m" 500 -
+2025-03-03 20:07:13,680 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 20:07:13,681 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 20:07:14,105 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.93:5000
+2025-03-03 20:07:14,107 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-03 20:07:14,112 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 20:07:15,317 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 20:07:15,317 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 20:07:15,450 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 20:07:15,468 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 20:12:59,168 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 20:12:59] "GET /api/stats HTTP/1.1" 200 -
+2025-03-03 20:12:59,169 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 20:12:59] "GET /api/activity HTTP/1.1" 200 -
+2025-03-03 20:12:59,172 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 20:12:59] "GET /api/notifications HTTP/1.1" 200 -
+2025-03-03 20:22:35,002 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 20:22:35] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 20:22:35,363 - transcriber_routes - INFO - Starting transcription for video: 3.mp4
+2025-03-03 20:23:02,171 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\3.mp4
+2025-03-03 20:23:02,172 - transcriber_routes - INFO - Transcription completed for video: 3.mp4
+2025-03-03 20:23:02,173 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 20:23:02] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 20:48:37,752 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 20:48:37] "GET /api/activity HTTP/1.1" 200 -
+2025-03-03 20:48:37,753 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 20:48:37] "GET /api/stats HTTP/1.1" 200 -
+2025-03-03 20:48:37,754 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 20:48:37] "GET /api/notifications HTTP/1.1" 200 -
+2025-03-03 21:16:25,280 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:16:25] "GET /api/activity HTTP/1.1" 200 -
+2025-03-03 21:16:25,281 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:16:25] "GET /api/stats HTTP/1.1" 200 -
+2025-03-03 21:16:25,282 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:16:25] "GET /api/notifications HTTP/1.1" 200 -
+2025-03-03 21:17:18,649 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:17:18] "OPTIONS /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 21:17:22,308 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:17:22] "POST /api/download/tiktok/info HTTP/1.1" 200 -
+2025-03-03 21:17:22,312 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:17:22] "OPTIONS /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 21:17:22,626 - downloader_routes - INFO - Starting TikTok video download: https://www.tiktok.com/@itssidders/video/7461618715142999329?is_from_webapp=1&sender_device=pc
+2025-03-03 21:17:29,099 - downloader_routes - INFO - Successfully downloaded TikTok video: https://www.tiktok.com/@itssidders/video/7461618715142999329?is_from_webapp=1&sender_device=pc
+2025-03-03 21:17:29,100 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:17:29] "POST /api/download/tiktok HTTP/1.1" 200 -
+2025-03-03 21:17:29,424 - downloader_routes - INFO - Serving file: tiktok_7461618715142999329.mp4
+2025-03-03 21:17:29,497 - cleanup_service - ERROR - Error deleting file D:\Website\viralflow\server\downloads\tiktok_7461618715142999329.mp4: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Website\\viralflow\\server\\downloads\\tiktok_7461618715142999329.mp4'
+2025-03-03 21:17:29,499 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:17:29] "GET /api/download/file/tiktok_7461618715142999329.mp4 HTTP/1.1" 200 -
+2025-03-03 21:17:54,154 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:17:54] "OPTIONS /api/transcribe HTTP/1.1" 200 -
+2025-03-03 21:17:54,541 - transcriber_routes - INFO - Starting transcription for video: 4.mp4
+2025-03-03 21:18:33,455 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\temp\4.mp4
+2025-03-03 21:18:33,456 - transcriber_routes - INFO - Transcription completed for video: 4.mp4
+2025-03-03 21:18:33,458 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 21:18:33] "POST /api/transcribe HTTP/1.1" 200 -
+2025-03-03 22:33:19,615 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 22:33:19,615 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 22:33:19,617 - cleanup_service - INFO - Successfully deleted file: D:\Website\viralflow\server\downloads\tiktok_7461618715142999329.mp4
+2025-03-03 22:33:19,617 - cleanup_service - INFO - Cleanup completed. Deleted 1 expired files
+2025-03-03 22:33:20,295 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.93:5000
+2025-03-03 22:33:20,296 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-03 22:33:20,309 - werkzeug - INFO -  * Restarting with stat
+2025-03-03 22:33:21,119 - scheduler_service - INFO - Starting scheduled task: Cleanup expired files
+2025-03-03 22:33:21,119 - scheduler_service - INFO - Scheduled task started: Cleanup expired files
+2025-03-03 22:33:21,221 - werkzeug - WARNING -  * Debugger is active!
+2025-03-03 22:33:21,234 - werkzeug - INFO -  * Debugger PIN: 980-534-378
+2025-03-03 22:40:08,706 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 22:40:08] "GET /api/notifications HTTP/1.1" 200 -
+2025-03-03 22:40:08,708 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 22:40:08] "GET /api/stats HTTP/1.1" 200 -
+2025-03-03 22:40:08,709 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 22:40:08] "GET /api/activity HTTP/1.1" 200 -
+2025-03-03 22:40:16,033 - werkzeug - INFO - 127.0.0.1 - - [03/Mar/2025 22:40:16] "GET /api/stats HTTP/1.1" 200 -

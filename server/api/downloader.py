@@ -1,7 +1,14 @@
-from flask import Blueprint, request, jsonify, send_from_directory
+from flask import Blueprint, request, jsonify, send_from_directory, after_this_request
 import os
-import services.tiktok_download  # Assuming your download logic is here
+import logging
+from services.tiktok_download import download_tiktok_video, TikTokDownloader
 from services.youtube_download import youtube_downloader
+from services.store import store
+from services.cleanup import cleanup_service
+from services.scheduler import scheduler
+
+# Configure logging
+logger = logging.getLogger('downloader_routes')
 
 # Create a blueprint for the downloader routes
 downloader_routes = Blueprint('downloader_routes', __name__)
@@ -12,44 +19,137 @@ DOWNLOAD_FOLDER = os.path.join(os.getcwd(), 'downloads')  # Save in the 'downloa
 # Ensure the directory exists
 os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
 
-# Endpoint for downloading a video from a given URL
-@downloader_routes.route('/tiktok', methods=['POST'])
-def download_video():
-    data = request.get_json()  # Parse incoming JSON data
-    url = data.get('url')  # Extract URL from the request body
+# Start the cleanup scheduler
+scheduler.add_task(5, cleanup_service.cleanup_expired_files, "Cleanup expired files")
+scheduler.start_all()
+
+@downloader_routes.route('/tiktok/info', methods=['POST'])
+def get_tiktok_info():
+    data = request.get_json()
+    url = data.get('url')
     
     if not url:
-        return jsonify({"error": "URL is required"}), 400
+        return jsonify({"error": "No URL provided"}), 400
 
     try:
-        # Call the tiktok_download service to handle the video download
-        download_result = services.tiktok_download.download_tiktok_video(url, DOWNLOAD_FOLDER)
+        downloader = TikTokDownloader(url, DOWNLOAD_FOLDER)
+        info = downloader.get_video_info()
+        # Extract only the metadata fields that the frontend expects
+        metadata = {
+            'title': info['title'],
+            'description': info['description'],
+            'duration': info['duration'],
+            'thumbnail': info['thumbnail'],
+            'view_count': info['view_count'],
+            'like_count': info['like_count'],
+            'creator': info['creator']
+        }
+        return jsonify({"info": metadata})
+    except Exception as e:
+        logger.error(f"Error getting TikTok video info: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+@downloader_routes.route('/tiktok', methods=['POST'])
+def download_video():
+    data = request.get_json()
+    url = data.get('url')
+    
+    if not url:
+        store.add_notification("Download failed: No URL provided", "error")
+        return jsonify({"error": "No URL provided"}), 400
+
+    try:
+        # Add initial notification
+        store.add_notification(f"Starting download from {url}", "info")
+        logger.info(f"Starting TikTok video download: {url}")
         
-        # Assuming download_tiktok_video returns the filename or file path of the downloaded video
-        return jsonify({"message": "Download successful", "file_path": download_result}), 200
-    except Exception as e:  # Handle any errors during the download process
+        # Start download activity
+        activity = store.add_download(url, "", "in_progress")
+        
+        # Download the video with metadata
+        result = download_tiktok_video(url, DOWNLOAD_FOLDER)
+        file_path = result['file_path']
+        
+        # Update activity with success
+        activity['status'] = 'completed'
+        activity['file_path'] = file_path
+        store.add_notification(f"Successfully downloaded video from {url}", "success")
+        logger.info(f"Successfully downloaded TikTok video: {url}")
+        
+        return jsonify({
+            "message": "Video downloaded successfully",
+            "file_path": file_path,
+            "filename": result['filename'],
+            "metadata": result['metadata']
+        })
+        
+    except Exception as e:
+        # Update activity with failure
+        if 'activity' in locals():
+            activity['status'] = 'failed'
+        store.add_notification(f"Failed to download video: {str(e)}", "error")
+        logger.error(f"Error downloading TikTok video: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 @downloader_routes.route('/youtube', methods=['POST'])
-def download_youtube_video():
-    data = request.get_json() 
-    url = data.get('url') 
+def download_youtube():
+    data = request.get_json()
+    url = data.get('url')
     
     if not url:
-        return jsonify({"error": "URL is required"}), 400
+        store.add_notification("Download failed: No URL provided", "error")
+        return jsonify({"error": "No URL provided"}), 400
 
     try:
-        # Call the tiktok_download service to handle the video download
-        download_result = youtube_downloader(url, DOWNLOAD_FOLDER)
+        # Add initial notification
+        store.add_notification(f"Starting download from YouTube: {url}", "info")
+        logger.info(f"Starting YouTube video download: {url}")
         
-        return jsonify({"message": "Download successful", "file_path": download_result}), 200
-    except Exception as e:  # Handle any errors during the download process
+        # Start download activity
+        activity = store.add_download(url, "", "in_progress")
+        
+        # Download the video using the actual implementation
+        file_path = youtube_downloader(url, DOWNLOAD_FOLDER)
+        
+        # Update activity with success
+        activity['status'] = 'completed'
+        activity['file_path'] = file_path
+        store.add_notification(f"Successfully downloaded YouTube video", "success")
+        logger.info(f"Successfully downloaded YouTube video: {url}")
+        
+        return jsonify({
+            "message": "Video downloaded successfully",
+            "file_path": file_path,
+            "filename": os.path.basename(file_path)
+        })
+        
+    except Exception as e:
+        # Update activity with failure
+        if 'activity' in locals():
+            activity['status'] = 'failed'
+        store.add_notification(f"Failed to download video: {str(e)}", "error")
+        logger.error(f"Error downloading YouTube video: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
 @downloader_routes.route('/file/<filename>', methods=['GET'])
 def serve_file(filename):
-    # This function will allow clients to download the video
     try:
+        file_path = os.path.join(DOWNLOAD_FOLDER, filename)
+        if not os.path.exists(file_path):
+            logger.warning(f"File not found: {file_path}")
+            return jsonify({"error": "File not found"}), 404
+
+        @after_this_request
+        def cleanup(response):
+            try:
+                if os.path.exists(file_path):
+                    cleanup_service.delete_file(file_path)
+            except Exception as e:
+                logger.error(f"Error cleaning up file {file_path}: {str(e)}")
+            return response
+
+        logger.info(f"Serving file: {filename}")
         return send_from_directory(DOWNLOAD_FOLDER, filename, as_attachment=True)
-    except FileNotFoundError:   
-        return jsonify({"error": "File not found"}), 404
+    except Exception as e:
+        logger.error(f"Error serving file {filename}: {str(e)}")
+        return jsonify({"error": str(e)}), 500
