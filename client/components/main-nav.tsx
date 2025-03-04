@@ -43,6 +43,17 @@ export function MainNav() {
         Content
       </Link>
       <Link
+        href="/dashboard/youtube/downloader"
+        className={cn(
+          "text-sm font-medium transition-colors hover:text-primary",
+          pathname === "/dashboard/youtube/downloader"
+            ? "text-primary"
+            : "text-muted-foreground"
+        )}
+      >
+        YouTube Downloader
+      </Link>
+      <Link
         href="/dashboard/settings"
         className={cn(
           "text-sm font-medium transition-colors hover:text-primary",
